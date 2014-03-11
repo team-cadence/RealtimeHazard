@@ -1,23 +1,23 @@
-<Blueprint ClassName="Scene1" Version="0.9.1008">
+﻿<Blueprint ClassName="Scene1" Version="0.9.1008">
   <Scene RefId="Scene1" Name="Scene1" Type="Uno.Scenes.Scene">
-    <Layout RootX="10" RootY="50" PanX="145.55999999999995" PanY="13.799999999999969" Scale="1.12">
+    <Layout RootX="10" RootY="50" PanX="308.55999999999995" PanY="86.799999999999969">
       <DefaultConnector Node="Scene1" Property="Children" />
     </Layout>
-    <Node RefId="Camera1" Name="Camera1" Type="Uno.Scenes.Entity" RecordProperties="false">
-      <Layout X="151" Y="48" RootX="10" RootY="50">
-        <DefaultConnector Node="Camera1" Property="Children" />
+    <Node RefId="GameCamera" Name="GameCamera" Type="Uno.Scenes.Entity" RecordProperties="false">
+      <Layout X="161" Y="153" RootX="10" RootY="50">
+        <DefaultConnector Node="GameCamera" Property="Children" />
       </Layout>
       <Node RefId="Camera1Frustum" Name="Camera1Frustum" Type="Uno.Scenes.Frustum">
         <Layout X="187" Y="26" RootX="10" RootY="50" />
         <Property Name="FovDegrees" Type="float" Value="45f" />
-        <Property Name="Aspect" Type="float" Value="2.4f" />
+        <Property Name="Aspect" Type="float" Value="0.8741497f" />
         <Property Name="ZNear" Type="float" Value="10f" />
-        <Property Name="ZFar" Type="float" Value="5000f" />
+        <Property Name="ZFar" Type="float" Value="1000000f" />
       </Node>
       <Node RefId="Camera1Transform" Name="Camera1Transform" Type="Uno.Scenes.Transform">
         <Layout X="180" Y="56" RootX="10" RootY="50" />
-        <Property Name="Position" Type="float3" Value="100f, 100f, 100f" />
-        <Property Name="RotationDegrees" Type="float3" Value="325f, 45f, 120f" />
+        <Property Name="Position" Type="float3" Value="0f, 0f, 500f" />
+        <Property Name="RotationDegrees" Type="float3" Value="345.7491f, 1.460248f, 354.0879f" />
       </Node>
       <Property Name="Components">
         <Ref>Camera1Transform</Ref>
@@ -26,12 +26,46 @@
     </Node>
     <Node RefId="Style1" Name="Style1" Type="Uno.Styling.Style" GenerateMember="None">
       <StaticField OwnerType="Uno.UI.DefaultStyle" Name="Style" />
-      <Layout X="168" Y="112" RootX="10" RootY="50" />
+      <Layout X="134" Y="178" RootX="10" RootY="50" />
     </Node>
-    <Property Name="Children">
-      <Ref>Camera1</Ref>
-    </Property>
-    <Property Name="Camera" Type="Uno.Scenes.Entity" Ref="Camera1" />
+    <Node RefId="Player2" Name="Player2" Type="RealtimeHazard.Player" GenerateMember="None">
+      <Layout X="226.44000000000005" Y="11.200000000000045" RootX="10" RootY="50">
+        <DefaultConnector Node="Player2" Property="Children" />
+      </Layout>
+      <Node RefId="Transform2" Name="Transform2" Type="Uno.Scenes.Transform" GenerateMember="None">
+        <Layout X="324.44000000000005" Y="11.200000000000045" RootX="10" RootY="50" />
+        <Property Name="Position" Type="float3" Value="141.2922f, 141.2922f, 0f" />
+        <Property Name="RotationDegrees" Type="float3" Value="105f, 99f, 0f" />
+      </Node>
+      <Property Name="Speed" Type="float" Value="-0.08426914f" />
+      <Property Name="Color" Type="float3" Value="0.8313726f, 0.01960784f, 0.01960784f" />
+      <Property Name="Components">
+        <Ref>Transform2</Ref>
+      </Property>
+    </Node>
+    <Node RefId="FreeCamera" Name="FreeCamera" Type="Uno.Scenes.Entity" GenerateMember="None">
+      <Layout X="161.44000000000005" Y="126.20000000000005" RootX="10" RootY="50">
+        <DefaultConnector Node="FreeCamera" Property="Children" />
+      </Layout>
+      <Node RefId="Transform4" Name="Transform4" Type="Uno.Scenes.Transform" GenerateMember="None">
+        <Layout X="678.44" Y="16.200000000000045" RootX="10" RootY="50" />
+        <Property Name="Position" Type="float3" Value="-24.13611f, -309.4461f, 0f" />
+        <Property Name="RotationDegrees" Type="float3" Value="78.65836f, 104.4832f, 104.2119f" />
+      </Node>
+      <Node RefId="FreeCameraFrustum1" Name="FreeCameraFrustum1" Type="Uno.Scenes.Frustum" GenerateMember="None">
+        <Layout X="878.44" Y="30" RootX="10" RootY="50" />
+      </Node>
+      <Property Name="Components">
+        <Ref>Transform4</Ref>
+        <Ref>FreeCameraFrustum1</Ref>
+      </Property>
+    </Node>
+    <Property Name="Camera" Type="Uno.Scenes.Entity" Ref="GameCamera" />
     <Property Name="Style" Type="Uno.Styling.Style" Ref="Style1" />
+    <Property Name="Children">
+      <Ref>GameCamera</Ref>
+      <Ref>Player2</Ref>
+      <Ref>FreeCamera</Ref>
+    </Property>
   </Scene>
 </Blueprint>

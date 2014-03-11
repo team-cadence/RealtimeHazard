@@ -8,6 +8,7 @@
   </References>
   <Files>
     <UxFile Path="Scene1.ux" />
+    <SourceFile Path="Actors/Player.uno" />
     <StartupFile Path="Scene1.ux" />
   </Files>
 </Project>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Project>
+  <References>
+    <PackageReference Name="Uno.Content.Utilities" />
+    <PackageReference Name="Uno.Scenes" />
+    <PackageReference Name="Uno.Styling" />
+    <PackageReference Name="Uno.UI" />
+  </References>
+  <Files>
+    <UxFile Path="Scene1.ux" />
+    <StartupFile Path="Scene1.ux" />
+  </Files>
+</Project>

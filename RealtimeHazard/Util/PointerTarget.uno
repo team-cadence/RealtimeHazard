@@ -15,16 +15,16 @@ namespace RealtimeHazard
 
 		public PointerTarget()
 		{
-			
+
 		}
 
 		protected override void OnUpdate()
 		{
 			if(Camera == null) return;
-			
+
 			var ray = Context.Camera.Frustum.PixelToWorldRay(Input.PointerCoord, Context.VirtualResolution);
 			Transform.Position = float3(ray.Position.X * Camera.Distance, ray.Position.Y * Camera.Distance, 0);
-			debug_log ray.Position;
+
 			base.OnUpdate();
 		}
 

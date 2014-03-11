@@ -9,10 +9,14 @@
   </References>
   <Files>
     <UxFile Path="Scene1.ux" />
-    <SourceFile Path="Actors/Enemy.uno" />
+    <SourceFile Path="Controls/GameManager.uno" />
     <SourceFile Path="GameObjects/Destroyable.uno" />
+    <SourceFile Path="GameObjects/Enemy.uno" />
+    <SourceFile Path="GameObjects/GameBounds.uno" />
     <SourceFile Path="GameObjects/GameObject.uno" />
+    <SourceFile Path="GameObjects/Player.uno" />
     <SourceFile Path="GameObjects/Projectile.uno" />
+    <SourceFile Path="Util/GameCamera.uno" />
     <SourceFile Path="Util/PointerTarget.uno" />
     <StartupFile Path="Scene1.ux" />
   </Files>

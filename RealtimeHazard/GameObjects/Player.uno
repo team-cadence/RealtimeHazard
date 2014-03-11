@@ -12,32 +12,57 @@ namespace RealtimeHazard
 {
 	public class Player : Entity
 	{
-		
+
 		[Range(1, 10)]
 		public float Speed { get; set; }
 		[Range(0, 100), DesignerName("Size")]
 		public float PlayerSize { get; set; }
+
+		//public Uno.Geometry.Box Box { get; set; }
+		
+		public GameBounds Bounds { get; set; }
 		
 		private float2 newPosition;
 		
+		
+
 		public Player()
 		{
 			PlayerSize = 10;
 			Speed = 1;
-			Application.Current.Window.KeyDown += OnKeyDown;
+			
 		}
-		
+
 		protected override void OnInitialize()
 		{
 			newPosition = Transform.Position.XY;
+			//Box = new Uno.Geometry.Box();
 		}
-		
+
 		protected override void OnUpdate()
 		{
 			Transform.Position = float3(newPosition, 0);
+			
+			if(Input.IsKeyDown(Key.W))
+			{
+				MoveUp();
+			}
+			if(Input.IsKeyDown(Key.A))
+			{
+				MoveLeft();
+			}
+			if(Input.IsKeyDown(Key.S))
+			{
+				MoveDown();
+			}
+			if(Input.IsKeyDown(Key.D))
+			{
+				MoveRight();
+			}
+			
 		}
 
-		
+
 		protected override void OnDraw()
 		{
 			draw DefaultShading, Cube
@@ -46,49 +71,31 @@ namespace RealtimeHazard
 				Size: PlayerSize;
 			};
 		}
-		
-		protected void OnKeyDown(object sender, Uno.Platform.KeyEventArgs args)
-		{
-			
-			if(args.Key == Key.W)
-			{
-				MoveUp();
-			}
-			if(args.Key == Key.S)
-			{
-				MoveDown();
-			}
-			if(args.Key == Key.A)
-			{
-				MoveLeft();
-			}
-			if(args.Key == Key.D)
-			{
-				MoveRight();
-			}
-			
-		}
 
-		
 		public void MoveUp()
 		{
+			if(Bounds != null)
+			{
+				//if(if (Uno.Geometry.Collision.BoxContainsBox(boundingBox, Box) != Collision.ContainmentType.Contains))
+			}
+			
 			newPosition += float2(0, Speed);
 		}
-		
+
 		public void MoveDown()
 		{
 			newPosition -= float2(0, Speed);
 		}
-		
+
 		public void MoveLeft()
 		{
 			newPosition -= float2(Speed, 0);
 		}
-		
+
 		public void MoveRight()
 		{
 			newPosition += float2(Speed, 0);
 		}
-		
+
 	}
 }

@@ -13,23 +13,70 @@ namespace RealtimeHazard
 		public float2 Direction { get; set; }
 		public float Speed { get; set; }
 		public bool IsPlayerProjectile { get; set; }
-		
+
+		private float3 position;
+
 		public Projectile()
 		{
 			IsPlayerProjectile = true;
+			position = float3(0);
 		}
-		
-		protected override void OnUpdate()
+
+		public Projectile(float3 startPosition, float2 direction)
 		{
-			Transform.Position += float3(Vector.Normalize(Direction) * Speed, 0);
+			StartPosition = startPosition;
+			Direction = direction;
+			Speed = 3f;
+			IsPlayerProjectile = true;
+			position = StartPosition;
+		}
+
+		public Projectile(float3 startPosition, float2 direction, bool isPlayerProjectile)
+		{
+			StartPosition = startPosition;
+			Direction = direction;
+			Speed = 3f;
+			IsPlayerProjectile = isPlayerProjectile;
+			position = StartPosition;
+		}
+
+		public Projectile(float3 startPosition, float2 direction, float speed, bool isPlayerProjectile)
+		{
+			StartPosition = startPosition;
+			Direction = direction;
+			Speed = speed;
+			IsPlayerProjectile = isPlayerProjectile;
+			position = StartPosition;
+		}
+
+		protected override void OnInitialize()
+		{
 			
-			base.OnUpdate();
+			base.OnInitialize();
+		}
+
+
+		public void Update()
+		{
+			position += float3(Vector.Normalize(Direction) * Speed, 0);
+
+		}
+
+		public void Draw()
+		{
+			draw DefaultShading, Uno.Scenes.Primitives.Sphere
+			{
+				Radius: 3f;
+				DiffuseColor: float3(0);
+				Translation: position;
+			};
+
 		}
 
 		protected void OnImpact()
 		{
-			
+
 		}
-		
+
 	}
 }

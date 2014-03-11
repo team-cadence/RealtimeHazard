@@ -1,51 +1,27 @@
-﻿<Blueprint ClassName="Scene1" Version="0.9.1008">
-  <Scene RefId="Scene1" Name="Scene1" Type="Uno.Scenes.Scene">
-    <Layout RootX="10" RootY="50" PanX="300.50637362637406" PanY="88.290027472527413" Scale="0.82000000000000006">
-      <DefaultConnector Node="Scene1" Property="Children" />
-    </Layout>
-    <Node RefId="Camera1" Name="Camera1" Type="Uno.Scenes.Entity" RecordProperties="false">
-      <Layout X="166.17857142857139" Y="84.60714285714289" RootX="10" RootY="50">
-        <DefaultConnector Node="Camera1" Property="Children" />
-      </Layout>
-      <Node RefId="Camera1Frustum" Name="Camera1Frustum" Type="Uno.Scenes.Frustum">
-        <Layout X="187" Y="26" RootX="10" RootY="50" />
-        <Property Name="FovDegrees" Type="float" Value="45f" />
-        <Property Name="Aspect" Type="float" Value="2.4f" />
-        <Property Name="ZNear" Type="float" Value="10f" />
-        <Property Name="ZFar" Type="float" Value="5000f" />
-      </Node>
-      <Node RefId="Camera1Transform" Name="Camera1Transform" Type="Uno.Scenes.Transform">
-        <Layout X="180" Y="56" RootX="10" RootY="50" />
-        <Property Name="Position" Type="float3" Value="100f, 100f, 100f" />
-        <Property Name="RotationDegrees" Type="float3" Value="325f, 45f, 120f" />
-      </Node>
-      <Property Name="Components">
-        <Ref>Camera1Transform</Ref>
-        <Ref>Camera1Frustum</Ref>
-      </Property>
-    </Node>
-    <Node RefId="Style1" Name="Style1" Type="Uno.Styling.Style" GenerateMember="None">
-      <StaticField OwnerType="Uno.UI.DefaultStyle" Name="Style" />
-      <Layout X="168" Y="112" RootX="10" RootY="50" />
-    </Node>
-    <Node RefId="Enemy1" Name="Enemy1" Type="RealtimeHazard.Enemy" GenerateMember="None">
-      <Layout X="162.33972125435548" Y="23.10322299651591" RootX="10" RootY="50">
-        <DefaultConnector Node="Enemy1" Property="Children" />
-      </Layout>
-      <Node RefId="Transform2" Name="Transform2" Type="Uno.Scenes.Transform" GenerateMember="None">
-        <Layout X="-296.92857142857133" Y="-773.48214285714278" RootX="10" RootY="50" />
-        <Property Name="Position" Type="float3" Value="-21.46127f, -31.30801f, 0f" />
-      </Node>
-      <Property Name="Color" Type="float3" Value="0.1254902f, 0.6156863f, 0.172549f" />
-      <Property Name="Components">
-        <Ref>Transform2</Ref>
-      </Property>
-    </Node>
-    <Property Name="Camera" Type="Uno.Scenes.Entity" Ref="Camera1" />
-    <Property Name="Style" Type="Uno.Styling.Style" Ref="Style1" />
-    <Property Name="Children">
-      <Ref>Camera1</Ref>
-      <Ref>Enemy1</Ref>
-    </Property>
-  </Scene>
-</Blueprint>
+﻿<Scene xmlns:ux="http://schemas.outracks.com/ux" xmlns:rh="RealtimeHazard" ux:ClassName="Scene1" xmlns="Uno.Scenes, Uno.Styling, Uno.UI, Uno">
+  <rh:Enemy Color="0.2156863, 0.5490196, 0.2470588" ux:Name="Enemy1">
+    <Transform Position="72.44641, -31.30801, 0" ux:Name="Transform2" />
+  </rh:Enemy>
+  <Entity ux:Name="Entity1">
+    <rh:Player Speed="4.438202" PlayerSize="20.11236" ux:Name="Player1">
+      <Transform ux:Name="Transform1" />
+    </rh:Player>
+    <Transform ux:Name="Transform3" />
+  </Entity>
+  <rh:PointerTarget ux:Field="PointerTarget1">
+    <Transform Position="0, 0, 0" ux:Name="Transform4" />
+    <rh:GameCamera ux:Binding="Camera" ux:AutoBind="false" Distance="1000" ux:Field="GameCamera2">
+      <Transform ux:Name="Transform7" />
+      <Frustum ux:Name="GameCamera2Frustum1" />
+    </rh:GameCamera>
+  </rh:PointerTarget>
+  <rh:GameCamera ux:Binding="Camera" ux:Ref="GameCamera2" />
+  <rh:GameManager ux:Name="GameManager1">
+    <rh:Player ux:Binding="Player" ux:AutoBind="false" ux:Ref="Player1" />
+    <rh:PointerTarget ux:Binding="Target" ux:AutoBind="false" ux:Ref="PointerTarget1" />
+  </rh:GameManager>
+  <rh:GameBounds Width="606.7416" Height="314.6068" VisibleDepth="100" ux:Name="GameBounds1">
+    <Transform ux:Name="Transform5" />
+  </rh:GameBounds>
+  <Style ux:Name="Style1" ux:StaticRef="Uno.UI.DefaultStyle.Style" />
+</Scene>

@@ -7,7 +7,7 @@ using Uno.Content.Models;
 
 namespace RealtimeHazard
 {
-	public class GameObject : Entity, Destroyable
+	public abstract class GameObject : Entity, Destroyable
 	{
 		protected void Destroy()
 		{

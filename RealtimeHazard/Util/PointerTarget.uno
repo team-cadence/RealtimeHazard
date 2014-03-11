@@ -11,31 +11,35 @@ namespace RealtimeHazard
 {
 	public class PointerTarget : Entity
 	{
-		
+		public GameCamera Camera { get; set; }
+
 		public PointerTarget()
 		{
+			
 		}
-		
+
 		protected override void OnUpdate()
 		{
+			if(Camera == null) return;
+			
 			var ray = Context.Camera.Frustum.PixelToWorldRay(Input.PointerCoord, Context.VirtualResolution);
-			Transform.Position = float3(ray.Position.X * 1000, ray.Position.Y * 1000, 0);
+			Transform.Position = float3(ray.Position.X * Camera.Distance, ray.Position.Y * Camera.Distance, 0);
 			debug_log ray.Position;
 			base.OnUpdate();
 		}
-		
+
 		protected override void OnDraw()
 		{
-			
+
 			draw DefaultShading, Uno.Scenes.Primitives.Sphere
 			{
 				Translation: Transform.Position;
 				Radius: 5f;
 			};
-			
+
 			base.OnDraw();
 		}
 
-		
+
 	}
 }

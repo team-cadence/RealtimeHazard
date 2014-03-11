@@ -12,16 +12,16 @@ namespace RealtimeHazard
 	{
 		[Range(0, 1000)]
 		public float Distance { get; set; }
-		
+
 		public GameCamera()
 		{
 			Distance = 100f;
 		}
-		
+
 		protected override void OnUpdate()
 		{
 			Transform.Position = float3(0, 0, Distance);
-			
+
 			base.OnUpdate();
 		}
 

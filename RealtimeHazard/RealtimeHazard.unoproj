@@ -14,6 +14,7 @@
     <UxFile Path="Scene1.ux" />
     <SourceFile Path="Audio/MusicController.uno" />
     <SourceFile Path="Audio/MusicPlayer.uno" />
+    <SourceFile Path="Controls/EnemyType.uno" />
     <SourceFile Path="Controls/GameManager.uno" />
     <SourceFile Path="GameObjects/Destroyable.uno" />
     <SourceFile Path="GameObjects/Enemy.uno" />

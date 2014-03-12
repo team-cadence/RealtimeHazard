@@ -17,6 +17,10 @@ namespace RealtimeHazard
 		public List<Enemy> Enemies { get; set; }
 		public List<Projectile> Projectiles { get; set; }
 		public GameBounds Bounds { get; set; }
+		
+		public MusicPlayer MusicPlayer { get; set; }
+		
+		private 
 
 		public GameManager()
 		{
@@ -80,7 +84,12 @@ namespace RealtimeHazard
 
 			base.OnDraw();
 		}
-
+		
+		protected void AddEnemies()
+		{
+			
+		}
+		
 		// Taco
 
 

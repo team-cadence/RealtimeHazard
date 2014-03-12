@@ -11,17 +11,6 @@ namespace RealtimeHazard
 	{
 		public MusicPlayer MusicPlayer { get; set; }
 		
-		public FrequencyBinCount 
-		{ 
-			get
-			{  
-				if(MusicPlayer != null)
-				{
-					return MusicPlayer.FrequenzyBinCount;
-				}
-			} 
-		}
-		
 		protected override void OnInitialize()
 		{
 			base.OnInitialize();

@@ -12,6 +12,6 @@ namespace RealtimeHazard
 		One,
 		Two,
 		Three,
-		Four
+		Four,
 	}
 }

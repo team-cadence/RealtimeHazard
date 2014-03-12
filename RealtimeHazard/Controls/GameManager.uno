@@ -30,33 +30,33 @@ namespace RealtimeHazard
 
 		}
 
-		protected override void OnUpdate()
+		protected override void OnFixedUpdate()
 		{
 			if(Player == null) return;
 			if (Input.IsPointerDown())
 			{
 				Projectiles.Add(
 					new Projectile(
-						Player.Transform.Position,
+						float3(Player.Transform.Position.XY, 20),
 						Vector.Normalize(Target.Transform.Position.XY - Player.Transform.Position.XY),
 						10f,
 						true
 					)
+				
 				);
+				debug_log "Added";
 			}
 
 			if(Projectiles.Count > 0)
 				for (int i = 0; i < Projectiles.Count; i++)
 				{	
 					Projectiles[i].Update();
-					if(Projectiles[i].IsWithinBounds(new Uno.Geometry.Box(Bounds.GetMin(), Bounds.GetMax())))
+					//Projectiles[i].Update();
+					if(!Projectiles[i].IsWithinBounds(Bounds))
 					{
-						//Projectiles[i].Update();
+						Projectiles.RemoveAt(i);
 					}
-					else
-					{
-						//Projectiles.RemoveAt(i);
-					}
+					
 				}
 			
 				debug_log Projectiles.Count;
@@ -65,7 +65,7 @@ namespace RealtimeHazard
 				foreach (var e in Enemies)
 					e.Update();*/
 
-			base.OnUpdate();
+			base.OnFixedUpdate();
 		}
 
 		protected override void OnDraw()

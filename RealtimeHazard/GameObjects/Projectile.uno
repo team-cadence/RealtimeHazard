@@ -60,6 +60,7 @@ namespace RealtimeHazard
 		public void Update()
 		{
 			position += float3(Vector.Normalize(Direction) * Speed, 0);
+			position = float3(position.XY, 20);
 
 		}
 
@@ -74,9 +75,17 @@ namespace RealtimeHazard
 
 		}
 		
-		public bool IsWithinBounds(Uno.Geometry.Box Box)
+		public bool IsWithinBounds(GameBounds bounds)
 		{
-			return Uno.Geometry.Collision.BoxContainsSphere(Box, new Sphere(position, 3f)) == Uno.Geometry.Collision.ContainmentType.Contains;
+			if(position.X > bounds.Width || position.X <  0 - bounds.Width)
+			{
+				return false;
+			}
+			if(position.Y > bounds.Height || position.Y <  0 - bounds.Height)
+			{
+				return false;
+			}
+			return true;
 		}
 		
 		protected void OnImpact()

@@ -42,25 +42,25 @@ namespace RealtimeHazard
 						10f,
 						true
 					)
-				
+
 				);
 				debug_log "Added";
 			}
 
 			if(Projectiles.Count > 0)
 				for (int i = 0; i < Projectiles.Count; i++)
-				{	
+				{
 					Projectiles[i].Update();
 					//Projectiles[i].Update();
 					if(!Projectiles[i].IsWithinBounds(Bounds))
 					{
 						Projectiles.RemoveAt(i);
 					}
-					
+
 				}
-			
+
 				debug_log Projectiles.Count;
-				
+
 			/*if(Enemies.Count > 0)
 				foreach (var e in Enemies)
 					e.Update();*/
@@ -82,7 +82,7 @@ namespace RealtimeHazard
 			base.OnDraw();
 		}
 
-
+		// Taco
 
 
 	}

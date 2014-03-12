@@ -11,18 +11,22 @@
   <rh:PointerTarget ux:Field="PointerTarget1">
     <Transform Position="0, 0, 0" ux:Name="Transform4" />
     <rh:GameCamera ux:Binding="Camera" ux:AutoBind="false" Distance="1000" ux:Field="GameCamera2">
-      <Transform ux:Name="Transform7" />
-      <Frustum ux:Name="GameCamera2Frustum1" />
+      <Transform RotationQuaternion="0.01249495, -0.0003436977, -0.02749439, 0.9995438" RotationDegrees="0, 0, 0" ux:Name="Transform7" />
+      <Frustum ZFar="10000" ux:Name="GameCamera2Frustum1" />
     </rh:GameCamera>
   </rh:PointerTarget>
   <rh:GameCamera ux:Binding="Camera" ux:Ref="GameCamera2" />
   <rh:GameManager ux:Name="GameManager1">
     <rh:Player ux:Binding="Player" ux:AutoBind="false" ux:Ref="Player1" />
     <rh:PointerTarget ux:Binding="Target" ux:AutoBind="false" ux:Ref="PointerTarget1" />
-    <rh:GameBounds ux:Binding="Bounds" ux:AutoBind="false" Width="606.7416" Height="314.6068" VisibleDepth="100" ux:Name="GameBounds1">
+    <rh:GameBounds ux:Binding="Bounds" ux:AutoBind="false" Width="719.1011" Height="337.0787" VisibleDepth="100" ux:Name="GameBounds1">
       <Transform ux:Name="Transform5" />
     </rh:GameBounds>
   </rh:GameManager>
   <rh:GameBounds ux:Ref="GameBounds1" />
+  <Entity ux:Name="Entity2">
+    <Transform Position="70.27851, 160.9706, -6.761979" RotationQuaternion="-0.7256799, 0.05452818, -0.05139186, 0.6839402" RotationDegrees="279.2349, 111.6353, 248.6196" AbsolutePosition="70.27851, 160.9706, -6.761979" ux:Name="Transform6" />
+    <Frustum ux:Name="Entity2Frustum2" />
+  </Entity>
   <Style ux:Name="Style1" ux:StaticRef="Uno.UI.DefaultStyle.Style" />
 </Scene>

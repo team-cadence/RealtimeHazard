@@ -10,7 +10,7 @@ using Uno.Designer;
 
 namespace RealtimeHazard
 {
-	public class Player : Entity
+	public class Player : GameObject
 	{
 
 		[Range(1, 10)]
@@ -19,18 +19,18 @@ namespace RealtimeHazard
 		public float PlayerSize { get; set; }
 
 		//public Uno.Geometry.Box Box { get; set; }
-		
+
 		public GameBounds Bounds { get; set; }
-		
+
 		private float2 newPosition;
-		
-		
+
+
 
 		public Player()
 		{
 			PlayerSize = 10;
 			Speed = 1;
-			
+
 		}
 
 		protected override void OnInitialize()
@@ -42,7 +42,7 @@ namespace RealtimeHazard
 		protected override void OnUpdate()
 		{
 			Transform.Position = float3(newPosition, 0);
-			
+
 			if(Input.IsKeyDown(Key.W))
 			{
 				MoveUp();
@@ -59,7 +59,7 @@ namespace RealtimeHazard
 			{
 				MoveRight();
 			}
-			
+
 		}
 
 
@@ -78,7 +78,7 @@ namespace RealtimeHazard
 			{
 				//if(if (Uno.Geometry.Collision.BoxContainsBox(boundingBox, Box) != Collision.ContainmentType.Contains))
 			}
-			
+
 			newPosition += float2(0, Speed);
 		}
 
@@ -97,5 +97,8 @@ namespace RealtimeHazard
 			newPosition += float2(Speed, 0);
 		}
 
+		public override void Destroy()
+		{
+		}
 	}
 }

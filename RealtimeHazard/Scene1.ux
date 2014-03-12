@@ -11,7 +11,7 @@
   <rh:PointerTarget ux:Field="PointerTarget1">
     <Transform Position="0, 0, 0" ux:Name="Transform4" />
     <rh:GameCamera ux:Binding="Camera" ux:AutoBind="false" Distance="1000" ux:Field="GameCamera2">
-      <Transform RotationQuaternion="0.01249495, -0.0003436977, -0.02749439, 0.9995438" RotationDegrees="0, 0, 0" ux:Name="Transform7" />
+      <Transform RotationQuaternion="0, 0, -0.002499997, 0.9999969" RotationDegrees="0, 0, 0" AbsolutePosition="0, 0, 1003.975" ux:Name="Transform7" />
       <Frustum ZFar="10000" ux:Name="GameCamera2Frustum1" />
     </rh:GameCamera>
   </rh:PointerTarget>

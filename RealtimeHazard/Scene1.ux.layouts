@@ -1,0 +1,10 @@
+﻿<Layouts>
+  <Node RefId="this" PanX="-83.941343402226" PanY="-67.2016454689984">
+    <Node RefId="GameCamera2" />
+    <Node RefId="GameManager1">
+      <Node RefId="Player1" />
+      <Node RefId="PointerTarget1" />
+    </Node>
+    <Node RefId="GameBounds1" />
+  </Node>
+</Layouts>

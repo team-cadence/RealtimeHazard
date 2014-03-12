@@ -16,22 +16,27 @@ namespace RealtimeHazard
 		public float Height { get; set; }
 		[Range(0, 100)]
 		public float VisibleDepth { get; set; }
+		
+		public float2 SizeAsFloat2
+		{
+			get { return float2(Width, Height); }
+		}
 
 		protected override void OnUpdate()
 		{
 			Transform.Position = float3(0);
 		}
-		
+
 		public float3 GetMax()
 		{
 			return float3(0 - (Width / 2), 0 + (Height / 2), 0);
 		}
-		
+
 		public float3 GetMin()
 		{
 			return float3(0 + (Width / 2), 0 - (Height / 2), VisibleDepth);
 		}
-		
+
 		protected override void OnDraw()
 		{
 

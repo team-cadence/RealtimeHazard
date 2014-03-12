@@ -9,9 +9,6 @@ namespace RealtimeHazard
 {
 	public abstract class GameObject : Entity, Destroyable
 	{
-		protected void Destroy()
-		{
-			
-		}
+		public abstract void Destroy();
 	}
 }

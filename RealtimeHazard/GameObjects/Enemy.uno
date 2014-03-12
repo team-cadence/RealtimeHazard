@@ -38,7 +38,7 @@ namespace RealtimeHazard
 			base.OnDraw();
 		}
 
-		protected void Destroy()
+		public override void Destroy()
 		{
 			// Create animation to destroy enemy
 		}

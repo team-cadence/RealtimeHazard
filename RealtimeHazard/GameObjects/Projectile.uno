@@ -10,57 +10,46 @@ namespace RealtimeHazard
 {
 	public class Projectile : GameObject
 	{
-		public float3 StartPosition { get; set; }
 		public float2 Direction { get; set; }
 		public float Speed { get; set; }
 		public bool IsPlayerProjectile { get; set; }
 
-		private float3 position;
+		public float3 Position { get; set; }
 
 		public Projectile()
 		{
 			IsPlayerProjectile = true;
-			position = float3(0);
+			Position = float3(0);
 		}
 
-		public Projectile(float3 startPosition, float2 direction)
+		public Projectile(float3 initialPosition, float2 direction) :
+			this(initialPosition, direction, true)
 		{
-			StartPosition = startPosition;
-			Direction = direction;
-			Speed = 3f;
-			IsPlayerProjectile = true;
-			position = StartPosition;
 		}
 
-		public Projectile(float3 startPosition, float2 direction, bool isPlayerProjectile)
+		public Projectile(float3 initialPosition, float2 direction, bool isPlayerProjectile) :
+			this(initialPosition, direction, isPlayerProjectile, 3f)
 		{
-			StartPosition = startPosition;
-			Direction = direction;
-			Speed = 3f;
-			IsPlayerProjectile = isPlayerProjectile;
-			position = StartPosition;
 		}
 
-		public Projectile(float3 startPosition, float2 direction, float speed, bool isPlayerProjectile)
+		public Projectile(float3 initialPosition, float2 direction, bool isPlayerProjectile, float speed)
 		{
-			StartPosition = startPosition;
 			Direction = direction;
 			Speed = speed;
 			IsPlayerProjectile = isPlayerProjectile;
-			position = StartPosition;
+			Position = initialPosition;
 		}
 
 		protected override void OnInitialize()
 		{
-
 			base.OnInitialize();
 		}
 
 
 		public void Update()
 		{
-			position += float3(Vector.Normalize(Direction) * Speed, 0);
-			position = float3(position.XY, 20);
+			Position += float3(Vector.Normalize(Direction) * Speed, 0);
+			Position = float3(Position.XY, 20);
 
 		}
 
@@ -70,28 +59,18 @@ namespace RealtimeHazard
 			{
 				Radius: 3f;
 				DiffuseColor: float3(0);
-				Translation: position;
+				Translation: Position;
 			};
 
 		}
-		
-		public bool IsWithinBounds(GameBounds bounds)
-		{
-			if(position.X > bounds.Width || position.X <  0 - bounds.Width)
-			{
-				return false;
-			}
-			if(position.Y > bounds.Height || position.Y <  0 - bounds.Height)
-			{
-				return false;
-			}
-			return true;
-		}
-		
+
 		protected void OnImpact()
 		{
 
 		}
 
+		public override void Destroy()
+		{
+		}
 	}
 }

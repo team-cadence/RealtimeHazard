@@ -11,6 +11,7 @@
   <Files>
     <UxFile Path="Scene1.ux" />
     <SourceFile Path="Controls/GameManager.uno" />
+    <SourceFile Path="GameObjects/CollisionGrid.uno" />
     <SourceFile Path="GameObjects/Destroyable.uno" />
     <SourceFile Path="GameObjects/Enemy.uno" />
     <SourceFile Path="GameObjects/GameBounds.uno" />

@@ -59,7 +59,6 @@ namespace RealtimeHazard
 			
 			private List<String> tracks = new List<String>()
 			{
-				"crayons.mp3",
 				"rhcp-snow.mp3",
 				"Philter-Untitled.mp3",
 				"Philter-Pi.mp3",
@@ -85,6 +84,7 @@ namespace RealtimeHazard
 				{
 					InitWebAudio();
 				}
+				
 			}
 			
 			private void OnAnimStarted()
@@ -122,8 +122,8 @@ namespace RealtimeHazard
 				_analyzer = _context.CreateAnalyserNode();
 				_analyzer.MinDecibels = -100f;
 				_analyzer.MaxDecibels = -10;
-				_analyzer.FftSize = 128;
-				_analyzer.SmoothingTimeConstat = 0.5;
+				_analyzer.FftSize = 64;
+				_analyzer.SmoothingTimeConstat = 0.0;
 				_freqData = new byte[(int)_analyzer.FrequencyBinCount];
 			}
 
@@ -162,15 +162,18 @@ namespace RealtimeHazard
 					}
 					LoadSourceAndConnect(tracks[trackIndex]);
 				}
+				
+				if (!defined(Designer))
+				{
+					_analyzer.GetByteFrequencyData(_freqData);
+				}
+				
 			}
 			
 			protected override void OnUpdate()
 			{
 
-				if (!defined(Designer))
-				{
-					_analyzer.GetByteFrequencyData(_freqData);
-				}
+				
 				
 				
 				base.OnUpdate();

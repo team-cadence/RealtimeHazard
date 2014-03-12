@@ -1,10 +1,13 @@
 ﻿<Layouts>
-  <Node RefId="this" PanX="-83.941343402226" PanY="-67.2016454689984">
+  <Node RefId="this" PanX="-181.868317076637" PanY="35.8334485548057" Scale="1.48">
     <Node RefId="GameCamera2" />
-    <Node RefId="GameManager1">
+    <Node RefId="GameManager1" X="447.297297297297" Y="-65.2702702702702">
       <Node RefId="Player1" />
       <Node RefId="PointerTarget1" />
     </Node>
-    <Node RefId="GameBounds1" />
+    <Node RefId="GameBounds1" X="562" Y="34" />
+    <Node RefId="CollisionGrid1" X="455.161127323448" Y="196.84347746681">
+      <Node RefId="Transform8" X="675.749362617566" Y="162.284653937398" />
+    </Node>
   </Node>
 </Layouts>

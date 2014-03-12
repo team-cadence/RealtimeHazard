@@ -19,14 +19,18 @@
   <rh:GameManager ux:Name="GameManager1">
     <rh:Player ux:Binding="Player" ux:AutoBind="false" ux:Ref="Player1" />
     <rh:PointerTarget ux:Binding="Target" ux:AutoBind="false" ux:Ref="PointerTarget1" />
-    <rh:GameBounds ux:Binding="Bounds" ux:AutoBind="false" Width="719.1011" Height="337.0787" VisibleDepth="100" ux:Name="GameBounds1">
+    <rh:GameBounds ux:Binding="Bounds" ux:AutoBind="false" Width="500" Height="500" VisibleDepth="100" ux:Field="GameBounds1">
       <Transform ux:Name="Transform5" />
     </rh:GameBounds>
   </rh:GameManager>
   <rh:GameBounds ux:Ref="GameBounds1" />
   <Entity ux:Name="Entity2">
-    <Transform Position="70.27851, 160.9706, -6.761979" RotationQuaternion="-0.7256799, 0.05452818, -0.05139186, 0.6839402" RotationDegrees="279.2349, 111.6353, 248.6196" AbsolutePosition="70.27851, 160.9706, -6.761979" ux:Name="Transform6" />
-    <Frustum ux:Name="Entity2Frustum2" />
+    <Transform Position="75.46222, -841.575, 2495.114" RotationQuaternion="0.6110628, 0.009720841, 0.01259139, 0.7914223" RotationDegrees="15.09482, 1.657174, 6.339681" AbsolutePosition="31.60182, -364.894, 27.4888" ux:Name="Transform6" />
+    <Frustum Aspect="0.4438445" ZFar="10000" ux:Name="Entity2Frustum2" />
   </Entity>
+  <rh:CollisionGrid Rows="7" Columns="7" TotalGridSize="574, 553" ux:Field="CollisionGrid1">
+    <ux:PropertyBinding Destination="TotalGridSize" SourceRef="GameBounds1" SourceProperty="SizeAsFloat2" />
+    <Transform Scaling="1, 1, 1" ux:Name="Transform8" />
+  </rh:CollisionGrid>
   <Style ux:Name="Style1" ux:StaticRef="Uno.UI.DefaultStyle.Style" />
 </Scene>

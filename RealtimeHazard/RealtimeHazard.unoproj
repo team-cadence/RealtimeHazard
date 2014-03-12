@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Project>
   <References>
     <PackageReference Name="Uno.Content.Utilities" />
@@ -11,6 +11,7 @@
   <Files>
     <UxFile Path="Scene1.ux" />
     <SourceFile Path="Controls/GameManager.uno" />
+    <SourceFile Path="GameObjects/Bucket.uno" />
     <SourceFile Path="GameObjects/CollisionGrid.uno" />
     <SourceFile Path="GameObjects/Destroyable.uno" />
     <SourceFile Path="GameObjects/Enemy.uno" />

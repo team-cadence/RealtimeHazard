@@ -17,26 +17,36 @@ namespace RealtimeHazard
 		public List<Enemy> Enemies { get; set; }
 		public List<Projectile> Projectiles { get; set; }
 		public GameBounds Bounds { get; set; }
+		
+		public CollisionGrid collisionGrid { get; set; }
+		
+		public List<GameObject> AllGameObjects
+		{
+			get
+			{
+				var list = new List<GameObject>();
+				
+				list.Add(Player);
+				
+				foreach (var enemy in Enemies)
+				{
+					list.Add(enemy);
+				}
+				
+				foreach (var projectile in Projectiles)
+				{
+					list.Add(projectile);	
+				}
+				
+				return list;
+			}
+		}
 
 		public GameManager()
 		{
 			Projectiles = new List<Projectile>();
 			Enemies = new List<Enemy>();
-		}
-		
-		public static bool IsWithinBounds(GameBounds bounds, float3 position)
-		{
-			if(position.X > bounds.Width || position.X <  0 - bounds.Width)
-			{
-				return false;
-			}
-			
-			if(position.Y > bounds.Height || position.Y <  0 - bounds.Height)
-			{
-				return false;
-			}
-			
-			return true;
+			collisionGrid = new CollisionGrid();
 		}
 
 		protected void OnPointerDown(object sender, Uno.Platform.PointerEventArgs args)
@@ -46,18 +56,34 @@ namespace RealtimeHazard
 
 		protected override void OnFixedUpdate()
 		{
-			if(Player == null) return;
+			if(Player == null)
+			{
+				debug_log "Player was null";
+				return;
+			}
 			
+			if (collisionGrid.IndexOf(Player) == -1)
+			{
+				debug_log "placing player in correct bucket";
+				collisionGrid.PlaceInCorrectBucket(Player);	
+			}
+			
+			collisionGrid.PrintAllBuckets();
+			
+			debug_log "Player bucket index: " + collisionGrid.IndexOf(Player);
+
 			if (Input.IsPointerDown())
 			{
 				AddPlayerProjectile();
 			}
-			
-			foreach (var projectile in Projectiles)
-			{	
+
+			for (int i = 0; i < Projectiles.Count; i++)
+			{
+				var projectile = Projectiles[i];
+				
 				UpdateProjectile(projectile);
 			}
-			
+
 			base.OnFixedUpdate();
 		}
 
@@ -68,10 +94,6 @@ namespace RealtimeHazard
 				projectile.Draw();
 			}
 
-			/*if(Enemies.Count > 0)
-				foreach (var e in Enemies)
-					e.OnDraw();*/
-
 			base.OnDraw();
 		}
 
@@ -80,7 +102,7 @@ namespace RealtimeHazard
 		{
 			AddProjectile(true);
 		}
-		
+
 		private void AddEnemyProjectile()
 		{
 			AddProjectile(false);
@@ -91,17 +113,17 @@ namespace RealtimeHazard
 			var initialPosition = float3(Player.Transform.Position.XY, 0);
 			var direction = Vector.Normalize(Target.Transform.Position.XY - Player.Transform.Position.XY);
 			var speed = 10f;
-			
+
 			var newProjectile = new Projectile(initialPosition, direction, isPlayerProjectile, speed);
 			
 			Projectiles.Add(newProjectile);
 		}
-		
+
 		private void UpdateProjectile(Projectile projectile)
 		{
 			projectile.Update();
 
-			if(!IsWithinBounds(Bounds, projectile.Position))
+			if(!Bounds.Contains(projectile.Position))
 			{
 				Projectiles.Remove(projectile);
 			}

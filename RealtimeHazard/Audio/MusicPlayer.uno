@@ -56,7 +56,20 @@ namespace RealtimeHazard
 			private Channel _channel;
 
 			private Animation _mainAnimation;
-
+			
+			private List<String> tracks = new List<String>()
+			{
+				"crayons.mp3",
+				"rhcp-snow.mp3",
+				"Philter-Untitled.mp3",
+				"Philter-Pi.mp3",
+				"Philter-The-Lounge.mp3"
+			};
+			
+			private int trackIndex = 0;
+			
+			private const String path = "Z:/Uno/hackaton/RealtimeHazard/RealtimeHazard/Assets/";
+			
 			public MusicPlayer()
 			{
 				_music = import BundleFile("../Assets/Philter-Untitled.mp3");
@@ -73,7 +86,7 @@ namespace RealtimeHazard
 					InitWebAudio();
 				}
 			}
-
+			
 			private void OnAnimStarted()
 			{
 				_channel.Play();
@@ -90,12 +103,12 @@ namespace RealtimeHazard
 				_context = new AudioContext();
 				InitAnalyzer();
 				InitGain();
-				LoadSourceAndConnect();
+				LoadSourceAndConnect(tracks[trackIndex]);
 			}
 
-			private void LoadSourceAndConnect()
+			private void LoadSourceAndConnect(String track)
 			{
-				_stream = new HttpStreamSourceNode("Z:/Uno/hackaton/RealtimeHazard/RealtimeHazard/Assets/Philter-Untitled.mp3");
+				_stream = new HttpStreamSourceNode(path + track);
 				_source = _context.CreateMediaElementSourceNode(_stream);
 
 				_source.Connect(_analyzer);
@@ -126,8 +139,31 @@ namespace RealtimeHazard
 				{
 					_stream.Play();
 				}
+				
 			}
-
+			
+			public bool HasAudioEnded()
+			{
+				return _stream.CurrentTime >= _stream.Duration;
+			}
+			
+			public void Update()
+			{
+				
+				if(HasAudioEnded())
+				{
+					if(trackIndex <= tracks.Count - 1)
+					{
+						trackIndex++;
+					}
+					else
+					{
+						trackIndex = 0;
+					}
+					LoadSourceAndConnect(tracks[trackIndex]);
+				}
+			}
+			
 			protected override void OnUpdate()
 			{
 
@@ -135,7 +171,8 @@ namespace RealtimeHazard
 				{
 					_analyzer.GetByteFrequencyData(_freqData);
 				}
-
+				
+				
 				base.OnUpdate();
 			}
 		}

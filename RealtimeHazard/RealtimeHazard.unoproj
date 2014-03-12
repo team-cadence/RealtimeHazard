@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Project>
   <References>
     <PackageReference Name="Experimental.ApiBindings.WebAudio" Version="0.1.0.0" />
@@ -12,6 +12,8 @@
   </References>
   <Files>
     <UxFile Path="Scene1.ux" />
+    <SourceFile Path="Audio/MusicController.uno" />
+    <SourceFile Path="Audio/MusicPlayer.uno" />
     <SourceFile Path="Controls/GameManager.uno" />
     <SourceFile Path="GameObjects/Destroyable.uno" />
     <SourceFile Path="GameObjects/Enemy.uno" />
@@ -19,11 +21,20 @@
     <SourceFile Path="GameObjects/GameObject.uno" />
     <SourceFile Path="GameObjects/Player.uno" />
     <SourceFile Path="GameObjects/Projectile.uno" />
-    <SourceFile Path="Audio/MusicController.uno" />
-    <SourceFile Path="Audio/MusicPlayer.uno" />
     <SourceFile Path="Util/GameCamera.uno" />
     <SourceFile Path="Util/PointerTarget.uno" />
+    <SourceFile Path="Scene1.ux.uno" />
+    <ExtraFile Path="Assets/ariali.ttf" />
+    <ExtraFile Path="Assets/crayons.mp3" />
+    <ExtraFile Path="Assets/kokilab.ttf" />
+    <ExtraFile Path="Assets/mangal.ttf" />
+    <ExtraFile Path="Assets/Philter-Pi.mp3" />
+    <ExtraFile Path="Assets/Philter-The-Lounge.mp3" />
     <ExtraFile Path="Assets/Philter-Untitled.mp3" />
+    <ExtraFile Path="Assets/rhcp-snow.mp3" />
+    <ExtraFile Path="Assets/Shonar.ttf" />
+    <ExtraFile Path="Assets/simsunb.ttf" />
+    <ExtraFile Path="Assets/upckb.ttf" />
     <StartupFile Path="Scene1.ux" />
   </Files>
 </Project>

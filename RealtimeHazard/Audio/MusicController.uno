@@ -24,6 +24,13 @@ namespace RealtimeHazard
 
 			MusicPlayer.Start();
 		}
+		
+		protected override void OnUpdate()
+		{
+			MusicPlayer.Update();
+			base.OnUpdate();
+		}
+
 
 	}
 }

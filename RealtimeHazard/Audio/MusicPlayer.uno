@@ -56,7 +56,7 @@ namespace RealtimeHazard
 			private Channel _channel;
 
 			private Animation _mainAnimation;
-			
+
 			private List<String> tracks = new List<String>()
 			{
 				"rhcp-snow.mp3",
@@ -64,11 +64,11 @@ namespace RealtimeHazard
 				"Philter-Pi.mp3",
 				"Philter-The-Lounge.mp3"
 			};
-			
+
 			private int trackIndex = 0;
-			
+
 			private const String path = "Z:/Uno/hackaton/RealtimeHazard/RealtimeHazard/Assets/";
-			
+
 			public MusicPlayer()
 			{
 				_music = import BundleFile("../Assets/Philter-Untitled.mp3");
@@ -84,9 +84,9 @@ namespace RealtimeHazard
 				{
 					InitWebAudio();
 				}
-				
+
 			}
-			
+
 			private void OnAnimStarted()
 			{
 				_channel.Play();
@@ -139,17 +139,17 @@ namespace RealtimeHazard
 				{
 					_stream.Play();
 				}
-				
+
 			}
-			
+
 			public bool HasAudioEnded()
 			{
 				return _stream.CurrentTime >= _stream.Duration;
 			}
-			
+
 			public void Update()
 			{
-				
+
 				if(HasAudioEnded())
 				{
 					if(trackIndex <= tracks.Count - 1)
@@ -162,20 +162,20 @@ namespace RealtimeHazard
 					}
 					LoadSourceAndConnect(tracks[trackIndex]);
 				}
-				
+
 				if (!defined(Designer))
 				{
 					_analyzer.GetByteFrequencyData(_freqData);
 				}
-				
+
 			}
-			
+
 			protected override void OnUpdate()
 			{
 
-				
-				
-				
+
+
+
 				base.OnUpdate();
 			}
 		}

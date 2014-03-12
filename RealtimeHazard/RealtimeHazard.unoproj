@@ -3,6 +3,7 @@
   <References>
     <PackageReference Name="Uno.Content.Utilities" />
     <PackageReference Name="Uno.Designer" Version="0.1.0.0" />
+    <PackageReference Name="Uno.Geometry" Version="0.1.0.0" />
     <PackageReference Name="Uno.Scenes" />
     <PackageReference Name="Uno.Styling" />
     <PackageReference Name="Uno.UI" />

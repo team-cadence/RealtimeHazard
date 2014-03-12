@@ -19,9 +19,10 @@
   <rh:GameManager ux:Name="GameManager1">
     <rh:Player ux:Binding="Player" ux:AutoBind="false" ux:Ref="Player1" />
     <rh:PointerTarget ux:Binding="Target" ux:AutoBind="false" ux:Ref="PointerTarget1" />
+    <rh:GameBounds ux:Binding="Bounds" ux:AutoBind="false" Width="606.7416" Height="314.6068" VisibleDepth="100" ux:Name="GameBounds1">
+      <Transform ux:Name="Transform5" />
+    </rh:GameBounds>
   </rh:GameManager>
-  <rh:GameBounds Width="606.7416" Height="314.6068" VisibleDepth="100" ux:Name="GameBounds1">
-    <Transform ux:Name="Transform5" />
-  </rh:GameBounds>
+  <rh:GameBounds ux:Ref="GameBounds1" />
   <Style ux:Name="Style1" ux:StaticRef="Uno.UI.DefaultStyle.Style" />
 </Scene>

@@ -4,6 +4,7 @@ using Uno.Graphics;
 using Uno.Scenes;
 using Uno.Content;
 using Uno.Content.Models;
+using Uno.Geometry;
 
 namespace RealtimeHazard
 {
@@ -51,7 +52,7 @@ namespace RealtimeHazard
 
 		protected override void OnInitialize()
 		{
-			
+
 			base.OnInitialize();
 		}
 
@@ -72,7 +73,12 @@ namespace RealtimeHazard
 			};
 
 		}
-
+		
+		public bool IsWithinBounds(Uno.Geometry.Box Box)
+		{
+			return Uno.Geometry.Collision.BoxContainsSphere(Box, new Sphere(position, 3f)) == Uno.Geometry.Collision.ContainmentType.Contains;
+		}
+		
 		protected void OnImpact()
 		{
 

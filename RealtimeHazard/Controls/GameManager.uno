@@ -16,6 +16,7 @@ namespace RealtimeHazard
 
 		public List<Enemy> Enemies { get; set; }
 		public List<Projectile> Projectiles { get; set; }
+		public GameBounds Bounds { get; set; }
 
 		public GameManager()
 		{
@@ -45,11 +46,21 @@ namespace RealtimeHazard
 			}
 
 			if(Projectiles.Count > 0)
-				foreach (var p in Projectiles)
-				{
-					p.Update();
+				for (int i = 0; i < Projectiles.Count; i++)
+				{	
+					Projectiles[i].Update();
+					if(Projectiles[i].IsWithinBounds(new Uno.Geometry.Box(Bounds.GetMin(), Bounds.GetMax())))
+					{
+						//Projectiles[i].Update();
+					}
+					else
+					{
+						//Projectiles.RemoveAt(i);
+					}
 				}
-
+			
+				debug_log Projectiles.Count;
+				
 			/*if(Enemies.Count > 0)
 				foreach (var e in Enemies)
 					e.Update();*/

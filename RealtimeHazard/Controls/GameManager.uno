@@ -41,6 +41,8 @@ namespace RealtimeHazard
 				return list;
 			}
 		}
+		
+		public MusicPlayer MusicPlayer { get; set; }
 
 		public GameManager()
 		{
@@ -96,7 +98,12 @@ namespace RealtimeHazard
 
 			base.OnDraw();
 		}
-
+		
+		protected void AddEnemies()
+		{
+			
+		}
+		
 		// Taco
 		private void AddPlayerProjectile()
 		{

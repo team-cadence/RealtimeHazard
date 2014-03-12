@@ -1,13 +1,31 @@
 ﻿<Layouts>
-  <Node RefId="this" PanX="-181.868317076637" PanY="35.8334485548057" Scale="1.48">
-    <Node RefId="GameCamera2" />
-    <Node RefId="GameManager1" X="447.297297297297" Y="-65.2702702702702">
-      <Node RefId="Player1" />
-      <Node RefId="PointerTarget1" />
+  <Node RefId="this" PanX="105.990469767627" PanY="39.5632090204348" RootX="8" RootY="36">
+    <Node RefId="Style1" X="113" Y="172" RootX="10" RootY="50" />
+    <Node RefId="Enemy1" X="394.339721254355" Y="35.1032229965159" RootX="10" RootY="50">
+      <Node RefId="Transform2" X="-296.928571428571" Y="-773.482142857143" RootX="10" RootY="50" />
     </Node>
-    <Node RefId="GameBounds1" X="562" Y="34" />
-    <Node RefId="CollisionGrid1" X="455.161127323448" Y="196.84347746681">
-      <Node RefId="Transform8" X="675.749362617566" Y="162.284653937398" />
+    <Node RefId="Player1" X="513.493626373626" Y="20.2099725274726">
+      <Node RefId="Transform1" X="530.493626373626" Y="-1.79002747252741" />
     </Node>
+    <Node RefId="Entity1" X="220.493626373626" Y="10.2099725274726">
+      <Node RefId="Transform3" X="220.493626373626" Y="10.2099725274726" />
+    </Node>
+    <Node RefId="PointerTarget1" X="535.402717282717" Y="51.119063436564">
+      <Node RefId="Transform4" X="-415.506373626374" Y="-870.790027472527" />
+    </Node>
+    <Node RefId="GameCamera2" X="824.664918131125" Y="111.684354271527">
+      <Node RefId="Transform7" X="527.664918131125" Y="57.684354271527" />
+      <Node RefId="GameCamera2Frustum1" X="460.664918131125" Y="30" />
+    </Node>
+    <Node RefId="GameManager1" X="278.918506647871" Y="-77.3682773074204" />
+    <Node RefId="GameBounds1" X="593.494525817525" Y="-22.439296070995">
+      <Node RefId="Transform5" X="253.494525817525" Y="-121.439296070995" />
+    </Node>
+    <Node RefId="Entity2" X="358.009530232373" Y="158.936790979565">
+      <Node RefId="Transform6" X="734.009530232373" Y="46.9367909795652" />
+      <Node RefId="Entity2Frustum2" X="570.009530232373" Y="30" />
+    </Node>
+    <Node RefId="MusicPlayer1" X="396.009530232373" Y="-108.063209020435" />
+    <Node RefId="MusicController1" X="183.009530232373" Y="-126.063209020435" />
   </Node>
 </Layouts>

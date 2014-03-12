@@ -64,6 +64,19 @@ namespace RealtimeHazard
 
 		}
 
+		public bool IsWithinBounds(GameBounds bounds)
+		{
+			if(position.X > bounds.Width || position.X <  0 - bounds.Width)
+			{
+				return false;
+			}
+			if(position.Y > bounds.Height || position.Y <  0 - bounds.Height)
+			{
+				return false;
+			}
+			return true;
+		}
+
 		protected void OnImpact()
 		{
 

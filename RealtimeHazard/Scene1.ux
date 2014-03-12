@@ -32,5 +32,8 @@
     <ux:PropertyBinding Destination="TotalGridSize" SourceRef="GameBounds1" SourceProperty="SizeAsFloat2" />
     <Transform Scaling="1, 1, 1" ux:Name="Transform8" />
   </rh:CollisionGrid>
+  <rh:MusicController ux:Name="MusicController1">
+    <rh:MusicPlayer ux:Binding="MusicPlayer" ux:AutoBind="false" ux:Name="MusicPlayer1" />
+  </rh:MusicController>
   <Style ux:Name="Style1" ux:StaticRef="Uno.UI.DefaultStyle.Style" />
 </Scene>

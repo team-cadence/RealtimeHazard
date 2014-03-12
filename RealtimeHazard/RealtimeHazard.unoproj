@@ -1,6 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Project>
   <References>
+    <PackageReference Name="Experimental.ApiBindings.WebAudio" Version="0.1.0.0" />
+    <PackageReference Name="Experimental.Audio" Version="0.1.0.0" />
     <PackageReference Name="Uno.Content.Utilities" />
     <PackageReference Name="Uno.Designer" Version="0.1.0.0" />
     <PackageReference Name="Uno.Geometry" Version="0.1.0.0" />
@@ -17,8 +19,11 @@
     <SourceFile Path="GameObjects/GameObject.uno" />
     <SourceFile Path="GameObjects/Player.uno" />
     <SourceFile Path="GameObjects/Projectile.uno" />
+    <SourceFile Path="Audio/MusicController.uno" />
+    <SourceFile Path="Audio/MusicPlayer.uno" />
     <SourceFile Path="Util/GameCamera.uno" />
     <SourceFile Path="Util/PointerTarget.uno" />
+    <ExtraFile Path="Assets/Philter-Untitled.mp3" />
     <StartupFile Path="Scene1.ux" />
   </Files>
 </Project>

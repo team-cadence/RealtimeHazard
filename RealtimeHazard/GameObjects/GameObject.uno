@@ -11,7 +11,7 @@ namespace RealtimeHazard
 	{
 		protected void Destroy()
 		{
-			
+
 		}
 	}
 }

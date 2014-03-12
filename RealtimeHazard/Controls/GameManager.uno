@@ -59,7 +59,6 @@ namespace RealtimeHazard
 
 				}
 
-				debug_log Projectiles.Count;
 
 			/*if(Enemies.Count > 0)
 				foreach (var e in Enemies)

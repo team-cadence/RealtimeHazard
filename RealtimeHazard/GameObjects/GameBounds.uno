@@ -21,17 +21,17 @@ namespace RealtimeHazard
 		{
 			Transform.Position = float3(0);
 		}
-		
+
 		public float3 GetMax()
 		{
 			return float3(0 - (Width / 2), 0 + (Height / 2), 0);
 		}
-		
+
 		public float3 GetMin()
 		{
 			return float3(0 + (Width / 2), 0 - (Height / 2), VisibleDepth);
 		}
-		
+
 		protected override void OnDraw()
 		{
 
